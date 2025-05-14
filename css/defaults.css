@@ -1,193 +1,197 @@
 /*
-* autorolltables.github.io REVISED style sheet
-* Focus on responsive vertical display and fixed-height scrollable panels.
+*   autorolltables.github.io style sheet
+*
 */
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin');
 
-/* --- Global Reset and Box Sizing --- */
-* {
-  box-sizing: border-box;
-}
 
-/* --- Base HTML and Body Styles --- */
-html {
+html, body
+{
   height: 100%;
 }
 
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: "Helvetica Neue", Helvetica, sans-serif !important; /* Original !important kept */
+body
+{
+  margin: 0px;
+  padding: 0px;
+  font-family: Helvetica Neue, Helvetica, sans-serif !important;
   font-size: 12pt;
-  color: rgba(0, 0, 0, 0.6);
-  background-color: #333; /* Assumed background, adjust if needed */
-  display: flex;
-  flex-direction: column;
+  color: rgba(0,0,0,.6);
 }
 
-/* Main page wrapper - ensure this ID is on your primary content container if using flex for body */
 #page {
-  flex-grow: 1; /* Allows this section to take available space if body is flex */
-  padding-left: 15px; /* Original */
-  /* If #page becomes scrollable itself, you might add overflow-y: auto here,
-     but the goal is for internal panels to scroll. */
+  padding-left: 15px;
 }
 
-/* --- Links and Typography --- */
-:link, :visited {
-  color: #fff; /* Default link color, was very global */
+.bgimage {
+  margin: -10em;
+  position: fixed;
+  opacity: 0.3;
+  filter: alpha(opacity=30); /* For IE8 and earlier */
+}
+
+:link{
+  color: #fff;
   text-decoration: none;
 }
 
-/* More specific link for footer, etc. */
-.text-less-muted a,
-.text-less-muted a:visited { /* Added visited state */
-  color: #6e8399;
-  text-decoration: underline;
+.select {
+  height:400px;
+  opacity: 0.65 !important;
+  filter: alpha(opacity=65);
 }
-.text-less-muted a:hover {
+
+.button {
+  margin-top: 2em;
+  letter-spacing: 1px;
   text-decoration: none;
+}
+
+.hover-icon-clickarea {
+  margin-right: 3px;
+  margin-left: 2px !important;
+}
+
+.bottom-btn {
+  background-color: #ccc !important;
+  color: #5A6668 !important;
+  line-height: 21px !important;
+}
+
+.search-button-addon {
+  padding: 0px 0px !important;
+  border: none !important;
+}
+
+/* Alerts */
+
+.overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.alert {
+  margin: 10px;
+  float: right;
+  white-space:nowrap;
+  color: #2b3e50 !important;
+}
+
+/* Redesigned */
+
+.logo {
+  vertical-align: middle;
+  /*float: left;*/
+  margin-top: 15px;
+  /*margin-left: 15px;*/
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 18px;
+  line-height: 20px;
+  height: 40px;
+  color: white;
+}
+
+.logo-nopad {
+  margin-top: 15px;
+  font-size: 18px;
+  line-height: 20px;
+  height: 40px;
+}
+
+.form-control {
+  padding: 8px 9px !important;
+}
+
+.rightview {
+  height: 436px;
+  width: auto;
+  opacity: 0.65 !important;
+  filter: alpha(opacity=65);
+  background-color:white;
+  overflow-y: scroll;
+  color: #2b3e50;
+}
+
+.rightview-srd {
+  height: 479px;
+  width: auto;
+  opacity: 0.65 !important;
+  filter: alpha(opacity=65);
+  background-color:white;
+  overflow-y: scroll;
+  color: #2b3e50;
+  padding: 10px 10px;
+}
+
+.rightview-current-display {
+  padding: 10px 10px;
+}
+
+.rightview-history-display {
+  padding: 0px 0px;
+}
+
+.srdtitle {
+  font-size: larger;
+}
+
+/* Chrome 29+ */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+  and (min-resolution:.001dpcm) {
+    .rightview {height: 436px !important;}
+    .rightview-srd {height: 456px !important;}
+}
+
+/* Chrome 22-28 */
+@media screen and(-webkit-min-device-pixel-ratio:0) {
+  .rightview {-chrome-:only(;
+    height: 436px !important;
+  );}
+  .rightview-srd {-chrome-:only(;
+    height: 456px !important;
+  );}
+}
+
+/* saf3+, chrome1+ */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .rightview {height: 436px !important;}
+  .rightview {height: 456px !important;}
+  #left-display-list {height: 499px !important;}
 }
 
 .text-less-muted {
   color: #6e8399;
 }
 
-.srdtitle {
-  font-size: larger;
-  font-weight: bold;
+.hovertoggle {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+
 }
 
-.subtext {
-  font-size: smaller;
-  font-style: italic;
-  color: #aaa;
+.on {
+  background-color: #a0a0a0 !important;
+  color: white !important;
 }
 
-/* --- Logo and Menu Container --- */
-.logo {
-  vertical-align: middle;
-  margin-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  font-size: 18px;
-  line-height: 20px;
-  color: white;
-  /* height: 40px; /* Removed fixed height, let content or line-height define */
-}
-
-.logo-nopad { /* Retained from original */
-  margin-top: 15px;
-  font-size: 18px;
-  line-height: 20px;
-  /* height: 40px; */
-}
-
-#menu-container { /* The row holding the menu buttons */
-  margin-bottom: 15px; /* Space below menu bar */
-}
-
-/* --- Main Content Panels: #left-display-list, .rightview, .rightview-srd --- */
-#left-display-list,
-.rightview,
-.rightview-srd {
-  opacity: 0.65 !important; /* Original !important retained */
-  filter: alpha(opacity=65); /* IE8 */
-  background-color: white;
-  color: #2b3e50;
-  overflow-y: scroll; /* Ensures content scrolls and scrollbar track is visible */
-  padding: 10px;      /* Standardized padding, adjust per panel if needed */
-}
-
-/* Default heights for larger screens */
-#left-display-list {
-  height: 479px;
-  max-height: 479px; /* Safeguard against content resizing the box */
-  padding: 5px;      /* Original specific padding for this element */
-}
-
-.rightview { /* Base for current and history display areas */
-  height: 436px;
-  max-height: 436px; /* Safeguard */
-}
-
-.rightview-current-display,
-.rightview-history-display {
-  width: 100%;
-  height: 100%; /* Fill the parent .rightview */
-  /* overflow-y: auto; /* Parent .rightview handles scrolling; this could be removed if not needed */
-}
-
-.rightview-history-display {
-  display: none; /* As per original JS logic */
-  padding: 0; /* Original was 0px 0px, if this specific padding is vital, keep it.
-                  Otherwise, .rightview padding of 10px will apply. */
-}
-
-.rightview-srd {
-  height: 479px; /* Was slightly different from .rightview */
-  max-height: 479px; /* Safeguard */
-}
-
-/* --- Form Controls and Buttons --- */
-.form-control {
-  padding: 8px 9px !important; /* Original !important */
-}
-
-.button { /* Generic .button class from original */
-  margin-top: 2em;
-  letter-spacing: 1px;
-  text-decoration: none;
-}
-
-.bottom-btn {
-  background-color: #ccc !important; /* Original !important */
-  color: #5A6668 !important;      /* Original !important */
-  line-height: 21px !important;   /* Original !important */
-}
-
-.search-button-addon {
-  padding: 0px 0px !important; /* Original !important */
-  border: none !important;     /* Original !important */
-}
-
-.hover-icon-clickarea {
-  margin-right: 3px;
-  margin-left: 2px !important; /* Original !important */
-}
 .hoveroff {
   color: #DF691A;
 }
 
-/* --- Alerts --- */
-.overlay {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  z-index: 1000; /* Ensure alerts are on top of other content */
-  pointer-events: none; /* Allows clicks to pass through unless an alert is directly targeted */
-}
+/* Roll Classes */
 
-.alert {
-  margin: 10px;
-  float: right;
-  clear: both; /* Ensures alerts stack vertically if multiple appear */
-  white-space: nowrap;
-  color: #2b3e50 !important; /* Original !important */
-  pointer-events: auto; /* Alerts themselves should be interactive */
-}
-
-/* --- Roll Specific Classes --- */
 .roll-title {
   font-size: larger;
   font-weight: bold;
 }
 
 .roll-title-history {
-  /* float: left; /* Replaced by flex alignment on parent .accordion */
+  float: left;
   font-size: normal;
   font-weight: bold;
 }
@@ -196,85 +200,84 @@ body {
   font-style: italic;
 }
 
-/* --- Display Formatting --- */
+/* Display Formatting */
+
 .indent {
   margin-left: 20px;
 }
 
-/* --- History Accordion --- */
-.for-copy { /* Used to hold plain text for copying, hidden from display */
-  display: none;
+/* History Accordion */
+
+.for-copy {
+  display:none;
 }
 
 div.accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 7px;
-  width: 100%;
-  text-align: left;
-  border: none; /* Was 0px */
-  outline: none;
-  transition: background-color 0.1s; /* Explicitly transition background-color */
-  display: flex; /* For better alignment of title and icons */
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ddd; /* Add a separator */
-}
-div.accordion:last-of-type {
-    border-bottom: none; /* No border for the very last accordion */
+   background-color: #eee;
+   color: #444;
+   cursor: pointer;
+   padding: 7px;
+   width: 100%;
+   text-align: left;
+   border: 0px;
+   border-collapse: collapse;
+   outline: none;
+   transition: 0.1s;
 }
 
-
-div.accordion.active,
-div.accordion:hover {
-  background-color: #ddd;
+div.accordion.active, div.accordion:hover {
+   background-color: #ddd;
 }
 
 div.panel {
-  padding: 2px 7px;
-  background-color: white;
-  display: none;
-  margin-bottom: 0px !important; /* Original !important */
-  border: 1px solid #eee;
-  border-top: none;
+   padding: 2px 7px;
+   background-color: white;
+   display: none;
+   margin-bottom: 0px !important;
 }
 
 div.panel.show {
-  display: block;
+   display: block;
 }
 
 div.history-item-menu {
-  /* float: right; /* No longer needed due to flex on .accordion */
-  /* z-index: 999; /* Typically not necessary */
+  float: right;
+  z-index: 999;
 }
 
-div.delete-history-item,
-div.expand-collapse {
+div.delete-history-item, div.expand-collapse {
   margin-left: 5px;
-  /* z-index: 9999; /* Typically not necessary */
+  z-index: 9999;
 }
 
-/* --- Left Navigation List Styles --- */
-.selectlist { /* Old select list, kept hidden as per original */
+/* New Select List */
+
+.selectlist {
+  /* Old Select List */
   display: none !important;
 }
 
-/* #left-display-list base styles are defined in "Main Content Panels" section */
+#left-display-list {
+  height: 479px;
+  opacity: 0.65 !important;
+  filter: alpha(opacity=65);
+  background-color:white;
+  overflow-y: scroll;
+  color: #2b3e50;
+  padding: 5px;
+}
 
 .list-item {
+  /*background-color: #eee;*/
   color: #444;
   cursor: pointer;
-  padding: 4px 2px; /* Slightly more touch-friendly padding */
+  padding: 2px;
   width: 100%;
   text-align: left;
-  border: none;
+  border: 0px;
+  border-collapse: collapse;
   outline: none;
-  transition: background-color 0.1s;
-  border-bottom: 1px solid #f0f0f0; /* Subtle separator for items */
-}
-.list-item:last-child {
-  border-bottom: none;
+  transition: 0.1s;
 }
 
 .list-item:hover {
@@ -283,100 +286,10 @@ div.expand-collapse {
 
 .list-selected {
   background-color: #ccc;
-  font-weight: bold; /* Make selection clearer */
 }
 
-/* --- Textareas for Copy/Paste --- */
-/* Hidden by JS, styled for when they are briefly shown for copy operation */
-.current-textarea,
-.history-textarea {
-  position: absolute; /* Take out of flow */
-  left: -9999px;    /* Move off-screen */
-  width: 1px;       /* Minimize size */
-  height: 1px;      /* Minimize size */
-  opacity: 0;       /* Make invisible */
-  /* Original had width: 100% and rows="19", but this is better for a hidden copy element */
+span.subtext {
+  font-size: smaller;
+  font-style: italic;
+  color: #aaa;
 }
-
-
-/* ===== RESPONSIVE ADJUSTMENTS FOR VERTICAL DISPLAY (Small Screens) ===== */
-
-@media (max-width: 767px) {
-  #leftnav {
-    margin-bottom: 15px; /* Space when #leftnav stacks above #rightnav */
-  }
-
-  #left-display-list {
-    height: 35vh;     /* 35% of viewport height */
-    max-height: 35vh; /* Ensure it doesn't exceed this */
-    /* Add !important if old WebKit hacks still interfere: height: 35vh !important; */
-  }
-
-  .rightview,
-  .rightview-srd {
-    height: 45vh;     /* 45% of viewport height */
-    max-height: 45vh; /* Ensure it doesn't exceed this */
-    /* Add !important if old WebKit hacks still interfere: height: 45vh !important; */
-  }
-
-  .logo {
-    font-size: 16px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  #menu-container {
-    margin-bottom: 10px;
-  }
-
-  #left-display-list,
-  .rightview,
-  .rightview-srd {
-    padding: 8px; /* Slightly reduce padding on smaller screens */
-  }
-
-  .bottom-btn {
-    font-size: 13px;
-    line-height: 1.8;
-    padding: 6px 10px;
-  }
-
-  /* Ensure bottom buttons stack neatly and take full width if they are in columns */
-  #leftbuttons,
-  #rightbuttons { /* Assuming #rightbuttons is a class or you have two such IDs */
-                 /* Also ensure these are col-xs-12 or similar if they should stack */
-    margin-bottom: 10px;
-  }
-  #leftbuttons .input-group, /* Make filter group full width */
-  #rightbuttons .btn {       /* Make copy buttons full width */
-    width: 100%;
-  }
-}
-
-/*
-  --- Commented out older WebKit-specific height hacks ---
-  These were present in your original CSS. Modern browsers generally don't need them,
-  and they can complicate responsive overrides. Test thoroughly if you uncomment/need them.
-  If removed, you likely won't need '!important' in the media query above for heights.
-
-  //@media screen and (-webkit-min-device-pixel-ratio:0)
-  //  and (min-resolution:.001dpcm) {
-  //    .rightview {height: 436px !important;}
-  //    .rightview-srd {height: 456px !important;}
-  //}
-
-  //@media screen and(-webkit-min-device-pixel-ratio:0) {
-  //  .rightview {-chrome-:only(;
-  //    height: 436px !important;
-  //  );}
-  //  .rightview-srd {-chrome-:only(;
-  //    height: 456px !important;
-  //  );}
-  //}
-
-  //@media screen and (-webkit-min-device-pixel-ratio:0) {
-  //  #left-display-list {height: 499px !important;}
-  //}
-*/
