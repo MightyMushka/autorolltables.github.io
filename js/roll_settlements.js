@@ -1,7 +1,7 @@
 // settlements.js
 //
 
-top.settlements = [
+window.settlements = [
 
 
 
