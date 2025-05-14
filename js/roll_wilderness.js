@@ -2,7 +2,7 @@
 //
 
 
-top.wilderness = [
+window.wilderness = [
 
 
   {"title": "d6 Point of interest You come upon a/an...", "id":"d6pointofinterestyoucomeuponaan_swamp(variant)", "roll":[
