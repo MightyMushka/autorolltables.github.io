@@ -2,7 +2,7 @@
 //
 
 
-top.wilderness = [
+window.wilderness = [
 
 
 
