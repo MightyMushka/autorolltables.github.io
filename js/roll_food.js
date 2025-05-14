@@ -2,7 +2,7 @@
 //
 
 
-top.food = [
+window.food = [
 
 
 
