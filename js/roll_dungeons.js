@@ -2,7 +2,7 @@
 //
 
 
-top.dungeons = [
+window.dungeons = [
 
 
 
