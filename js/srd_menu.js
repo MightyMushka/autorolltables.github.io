@@ -4,7 +4,7 @@
 //
 
 
-top.menu = [
+window.menu = [
 
   { "title":"All", "id":"All",
     "left":true,
