@@ -316,5 +316,22 @@ span.subtext {
     /* Your existing 'overflow-y: scroll;' rule for #left-display-list
        will ensure that if content exceeds this new 50vh height,
        it will be scrollable within this panel. */
+    }
+
+  /* --- NEWLY ADDED/MODIFIED FOR RIGHT DISPLAY LISTS --- */
+  .rightview,
+  .rightview-srd {
+    /* Height for the right content area (roll results/SRD) on small screens.
+       If #left-display-list is 35vh, '45vh' for this section might be a good balance.
+       Adjust this value based on how much space you want each section to take.
+       The sum of these vh units, plus your header/footer/button heights,
+       will determine the overall page height.
+    */
+    height: 10vh !important; /* Using !important due to existing !important rules. */
+
+    /* Your existing 'overflow-y: scroll;' rule for these elements
+       will ensure that if content exceeds this new height,
+       it will be scrollable within the panel. */
   }
+  /* --- END OF NEWLY ADDED/MODIFIED FOR RIGHT DISPLAY LISTS --- */
 }
