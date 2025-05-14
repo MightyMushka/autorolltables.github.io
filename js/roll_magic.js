@@ -1,7 +1,7 @@
 // magic.js
 //
 
-top.magic = [
+window.magic = [
 
 
 
