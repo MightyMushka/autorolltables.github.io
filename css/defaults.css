@@ -1,295 +1,383 @@
-/*
-*   autorolltables.github.io style sheet
-*
-*/
+/* autorolltables.github.io REVISED style sheet */
 
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin');
 
-
-html, body
-{
-  height: 100%;
+/* --- Base HTML and Body Styles --- */
+html {
+  height: 100%; /* Consider if you want the html element to be strictly viewport height */
 }
 
-body
-{
-  margin: 0px;
-  padding: 0px;
-  font-family: Helvetica Neue, Helvetica, sans-serif !important;
+body {
+  height: 100%; /* If html is 100%, body 100% can enable full-height layouts */
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, sans-serif !important; /* !important might be overriding Bootstrap */
   font-size: 12pt;
-  color: rgba(0,0,0,.6);
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #333; /* Assuming a dark background for white text on logo/menu */
+                          /* Add your actual body background if different */
+  display: flex; /* Helps in managing full height for some layouts */
+  flex-direction: column;
 }
 
+/* Main page container - adjust if your main content wrapper has a different ID/class */
+/* This helps if you want a footer to stick to the bottom, for example. */
+/* If #page is not your main content wrapper that should grow, this might not be needed. */
 #page {
-  padding-left: 15px;
+  flex-grow: 1;
+  padding-left: 15px; /* This was in your original #page */
+  /* If #page is within .container-fluid, Bootstrap handles padding.
+     If it's the main scrollable area outside fixed headers/footers,
+     you might add overflow-y: auto; here and remove height:100% from html/body */
 }
 
+
+/* --- Background Image --- */
 .bgimage {
-  margin: -10em;
+  margin: -10em; /* This technique can be a bit unpredictable for positioning */
   position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0; /* Ensure it covers if that's the intent */
   opacity: 0.3;
-  filter: alpha(opacity=30); /* For IE8 and earlier */
+  filter: alpha(opacity=30); /* For IE8 and earlier - very old */
+  z-index: -1; /* To ensure it's behind content */
 }
 
-:link{
-  color: #fff;
+.bgimage img { /* Ensure the image itself scales */
+  width: 150%; /* Example - make it oversized to cover and allow for -10em margin */
+  height: 150%;
+  object-fit: cover; /* Or contain, depending on desired effect */
+}
+
+
+/* --- Links and Typography --- */
+:link, :visited { /* Added :visited */
+  color: #fff; /* Consider if this should be more specific, e.g., a.whitelink */
   text-decoration: none;
 }
-
-.select {
-  height:400px;
-  opacity: 0.65 !important;
-  filter: alpha(opacity=65);
+/* More specific link styling if needed for different contexts */
+.text-less-muted a {
+  color: #6e8399; /* From your original */
+  text-decoration: underline;
 }
-
-.button {
-  margin-top: 2em;
-  letter-spacing: 1px;
+.text-less-muted a:hover {
   text-decoration: none;
-}
-
-.hover-icon-clickarea {
-  margin-right: 3px;
-  margin-left: 2px !important;
-}
-
-.bottom-btn {
-  background-color: #ccc !important;
-  color: #5A6668 !important;
-  line-height: 21px !important;
-}
-
-.search-button-addon {
-  padding: 0px 0px !important;
-  border: none !important;
-}
-
-/* Alerts */
-
-.overlay {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-}
-
-.alert {
-  margin: 10px;
-  float: right;
-  white-space:nowrap;
-  color: #2b3e50 !important;
-}
-
-/* Redesigned */
-
-.logo {
-  vertical-align: middle;
-  /*float: left;*/
-  margin-top: 15px;
-  /*margin-left: 15px;*/
-  padding-left: 15px;
-  padding-right: 15px;
-  font-size: 18px;
-  line-height: 20px;
-  height: 40px;
-  color: white;
-}
-
-.logo-nopad {
-  margin-top: 15px;
-  font-size: 18px;
-  line-height: 20px;
-  height: 40px;
-}
-
-.form-control {
-  padding: 8px 9px !important;
-}
-
-.rightview {
-  height: 436px;
-  width: auto;
-  opacity: 0.65 !important;
-  filter: alpha(opacity=65);
-  background-color:white;
-  overflow-y: scroll;
-  color: #2b3e50;
-}
-
-.rightview-srd {
-  height: 479px;
-  width: auto;
-  opacity: 0.65 !important;
-  filter: alpha(opacity=65);
-  background-color:white;
-  overflow-y: scroll;
-  color: #2b3e50;
-  padding: 10px 10px;
-}
-
-.rightview-current-display {
-  padding: 10px 10px;
-}
-
-.rightview-history-display {
-  padding: 0px 0px;
-}
-
-.srdtitle {
-  font-size: larger;
-}
-
-/* Chrome 29+ */
-@media screen and (-webkit-min-device-pixel-ratio:0)
-  and (min-resolution:.001dpcm) {
-    .rightview {height: 436px !important;}
-    .rightview-srd {height: 456px !important;}
-}
-
-/* Chrome 22-28 */
-@media screen and(-webkit-min-device-pixel-ratio:0) {
-  .rightview {-chrome-:only(;
-    height: 436px !important;
-  );}
-  .rightview-srd {-chrome-:only(;
-    height: 456px !important;
-  );}
-}
-
-/* saf3+, chrome1+ */
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  .rightview {height: 436px !important;}
-  .rightview {height: 456px !important;}
-  #left-display-list {height: 499px !important;}
 }
 
 .text-less-muted {
   color: #6e8399;
 }
 
-.hovertoggle {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
-
+.srdtitle {
+  font-size: larger;
+  font-weight: bold; /* Added for emphasis, similar to roll-title */
 }
 
-.on {
-  background-color: #a0a0a0 !important;
-  color: white !important;
+.subtext { /* From your original .list-item span.subtext */
+  font-size: smaller;
+  font-style: italic;
+  color: #aaa;
 }
 
-.hoveroff {
+
+/* --- Logo and Menu --- */
+.logo {
+  vertical-align: middle;
+  margin-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 18px;
+  line-height: 20px; /* Original was 20px, Bootstrap default is often higher */
+  height: auto; /* Let content define height, or set explicitly if needed */
+  color: white;
+  margin-bottom: 10px; /* Added some space below logo/menu bar */
+}
+
+/* #menu-container is the row holding the menu buttons */
+#menu-container {
+  margin-bottom: 15px; /* Space below menu bar */
+}
+
+
+/* --- Main Content Panels (#leftnav, #rightnav) --- */
+/* These are Bootstrap columns, their width is handled by col-*-* classes */
+
+#left-display-list,
+.rightview,
+.rightview-srd {
+  opacity: 0.65 !important; /* Retained !important as per original */
+  filter: alpha(opacity=65); /* IE8 */
+  background-color: white;
+  color: #2b3e50;
+  overflow-y: scroll; /* Ensure scrollability */
+  padding: 10px; /* Standardized padding, adjust if needed */
+}
+
+/* Default heights for larger screens */
+#left-display-list {
+  height: 479px; /* Original height */
+  padding: 5px;  /* Original padding */
+}
+
+.rightview { /* Covers .rightview-current-display and .rightview-history-display */
+  height: 436px; /* Original height */
+}
+.rightview-current-display { /* Specific padding was here */
+   /* padding: 10px 10px; */ /* Covered by .rightview now */
+}
+.rightview-history-display { /* Specific padding was here */
+   /* padding: 0px 0px; */ /* Covered by .rightview, adjust if 0px is truly needed */
+   display: none; /* Kept from original js hiding */
+}
+
+.rightview-srd { /* SRD view had a slightly different height */
+  height: 479px; /* Original height */
+  /* padding: 10px 10px; /* Covered by .rightview-srd now */
+}
+
+
+/* --- Form Controls and Buttons --- */
+.form-control { /* From original */
+  padding: 8px 9px !important;
+}
+
+.button { /* From original, generic .button class */
+  margin-top: 2em;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.bottom-btn { /* From original */
+  background-color: #ccc !important;
+  color: #5A6668 !important;
+  line-height: 21px !important;
+}
+
+.search-button-addon { /* From original */
+  padding: 0px 0px !important;
+  border: none !important;
+}
+
+.hover-icon-clickarea { /* From original */
+  margin-right: 3px;
+  margin-left: 2px !important;
+}
+.hoveroff { /* From original */
   color: #DF691A;
 }
 
-/* Roll Classes */
 
-.roll-title {
+/* --- Alerts --- */
+.overlay { /* From original */
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1000; /* Ensure alerts are on top */
+  pointer-events: none; /* So it doesn't intercept clicks unless an alert is there */
+}
+
+.alert { /* From original, with minor adjustments */
+  margin: 10px;
+  float: right;
+  clear: both; /* Ensure alerts stack if multiple appear */
+  white-space: nowrap;
+  color: #2b3e50 !important;
+  pointer-events: auto; /* Alerts themselves should be clickable if needed */
+}
+
+
+/* --- Roll Specific Classes --- */
+.roll-title { /* From original */
   font-size: larger;
   font-weight: bold;
 }
 
-.roll-title-history {
-  float: left;
-  font-size: normal;
+.roll-title-history { /* From original */
+  float: left; /* Consider if flexbox would be better for alignment with icons */
+  font-size: normal; /* Overrides .roll-title larger if both applied */
   font-weight: bold;
 }
 
-.roll-suggested-use {
+.roll-suggested-use { /* From original */
   font-style: italic;
 }
 
-/* Display Formatting */
 
-.indent {
+/* --- Display Formatting --- */
+.indent { /* From original */
   margin-left: 20px;
 }
 
-/* History Accordion */
 
-.for-copy {
-  display:none;
+/* --- History Accordion --- */
+.for-copy { /* From original */
+  display: none;
 }
 
-div.accordion {
-   background-color: #eee;
-   color: #444;
-   cursor: pointer;
-   padding: 7px;
-   width: 100%;
-   text-align: left;
-   border: 0px;
-   border-collapse: collapse;
-   outline: none;
-   transition: 0.1s;
-}
-
-div.accordion.active, div.accordion:hover {
-   background-color: #ddd;
-}
-
-div.panel {
-   padding: 2px 7px;
-   background-color: white;
-   display: none;
-   margin-bottom: 0px !important;
-}
-
-div.panel.show {
-   display: block;
-}
-
-div.history-item-menu {
-  float: right;
-  z-index: 999;
-}
-
-div.delete-history-item, div.expand-collapse {
-  margin-left: 5px;
-  z-index: 9999;
-}
-
-/* New Select List */
-
-.selectlist {
-  /* Old Select List */
-  display: none !important;
-}
-
-#left-display-list {
-  height: 479px;
-  opacity: 0.65 !important;
-  filter: alpha(opacity=65);
-  background-color:white;
-  overflow-y: scroll;
-  color: #2b3e50;
-  padding: 5px;
-}
-
-.list-item {
-  /*background-color: #eee;*/
+div.accordion { /* From original */
+  background-color: #eee;
   color: #444;
   cursor: pointer;
-  padding: 2px;
+  padding: 7px;
   width: 100%;
   text-align: left;
-  border: 0px;
-  border-collapse: collapse;
+  border: 0px; /* Consider adding a subtle border-bottom for separation */
+  /* border-collapse: collapse; /* Not applicable to divs */
   outline: none;
   transition: 0.1s;
+  display: flex; /* For aligning title and icons nicely */
+  justify-content: space-between; /* Pushes icons to the right */
+  align-items: center;
 }
 
-.list-item:hover {
+div.accordion.active,
+div.accordion:hover { /* From original */
   background-color: #ddd;
 }
 
-.list-selected {
-  background-color: #ccc;
+div.panel { /* From original */
+  padding: 2px 7px;
+  background-color: white;
+  display: none;
+  margin-bottom: 0px !important;
+  border: 1px solid #eee; /* Add a light border for panels */
+  border-top: none;
 }
 
-span.subtext {
-  font-size: smaller;
-  font-style: italic;
-  color: #aaa;
+div.panel.show { /* From original */
+  display: block;
+}
+
+/* div.history-item-menu was float:right. With flex on accordion, this is not strictly needed but fine. */
+div.history-item-menu {
+  /* float: right; */ /* Handled by flex on parent .accordion */
+  /* z-index: 999; */ /* Usually not needed unless specific stacking issues */
+}
+
+div.delete-history-item,
+div.expand-collapse { /* From original */
+  margin-left: 5px;
+  /* z-index: 9999; */ /* Usually not needed */
+}
+
+
+/* --- Left Navigation List (New Select List from original) --- */
+.selectlist { /* Old Select List from original, kept hidden */
+  display: none !important;
+}
+
+/* #left-display-list styles are defined in Layout Panes section now */
+
+.list-item { /* From original */
+  color: #444;
+  cursor: pointer;
+  padding: 4px 2px; /* Adjusted padding slightly for better touch on mobile */
+  width: 100%;
+  text-align: left;
+  border: none; /* Changed from 0px */
+  /* border-collapse: collapse; /* Not applicable */
+  outline: none;
+  transition: background-color 0.1s; /* Transition only background-color */
+  border-bottom: 1px solid #f0f0f0; /* Subtle separator */
+}
+.list-item:last-child {
+  border-bottom: none; /* Remove border from last item */
+}
+
+.list-item:hover { /* From original */
+  background-color: #ddd;
+}
+
+.list-selected { /* From original */
+  background-color: #ccc;
+  font-weight: bold; /* Make selected item stand out more */
+}
+
+
+/* --- Textareas (for copy-paste) --- */
+/* Kept hidden by default via JS, these are their base styles if shown */
+.current-textarea, .history-textarea {
+  width: 100%; /* Ensure they take full width of their container */
+  /* rows="19" in HTML defines initial height if displayed */
+  /* opacity: 0; */ /* Could be used to truly hide them visually if needed */
+  /* position: absolute; */
+  /* left: -9999px; */ /* Common trick to hide off-screen */
+}
+
+
+/* ===== RESPONSIVE ADJUSTMENTS FOR VERTICAL DISPLAY ===== */
+
+@media (max-width: 767px) { /* Targets Bootstrap XS screens */
+
+  #leftnav {
+    /* Optional: Add space below the list of tables when it stacks above results */
+    margin-bottom: 20px;
+  }
+
+  #left-display-list {
+    /* Adjust height for stacked view. 35vh = 35% of viewport height. */
+    height: 35vh;
+    /* If the above doesn't work due to old WebKit !important rules you've kept,
+       you might need: height: 35vh !important;
+       But try without !important first, especially if you remove old WebKit hacks. */
+  }
+
+  .rightview,
+  .rightview-srd {
+    /* Adjust height for the results panel in stacked view.
+       Example: 45vh = 45% of viewport height.
+       The sum of #left-display-list and this should ideally be less than
+       ~85-90vh to account for your header, buttons, and some breathing room,
+       unless you want the body itself to scroll significantly.
+    */
+    height: 45vh;
+    /* Again, use !important if absolutely necessary to override older rules:
+       height: 45vh !important; */
+  }
+
+  /* Make textareas take less vertical space if they were visible */
+  /* This is only relevant if you change JS to show them directly on mobile */
+  /*
+  #rightview-current,
+  #rightview-history {
+    height: 20vh;
+    rows: 10;
+  }
+  */
+
+  .logo {
+    font-size: 16px; /* Slightly smaller logo text */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px; /* Adjust padding for smaller screens */
+    padding-right: 10px;
+  }
+
+  #menu-container {
+    margin-bottom: 10px; /* Less space below menu bar */
+  }
+
+  /* Adjust padding on main content panes for more space */
+  #left-display-list,
+  .rightview,
+  .rightview-srd {
+    padding: 5px;
+  }
+
+  .bottom-btn {
+    font-size: 13px; /* Slightly smaller button text */
+    line-height: 1.8; /* Adjust line height for smaller buttons */
+    padding: 6px 10px; /* Adjust button padding */
+  }
+
+  /* Stack bottom buttons cleanly */
+  #leftbuttons,
+  #rightbuttons { /* Assuming #rightbuttons is a class or you have two such IDs */
+    margin-bottom: 10px;
+  }
+  #leftbuttons .input-group,
+  #rightbuttons .btn {
+    width: 100% !important; /* Make them full width */
+  }
+
 }
