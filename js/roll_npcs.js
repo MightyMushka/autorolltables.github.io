@@ -2,7 +2,7 @@
 //
 
 
-top.npcs = [
+window.npcs = [
 
 
 
