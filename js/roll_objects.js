@@ -2,7 +2,7 @@
 //
 
 
-top.objects = [
+window.objects = [
 
 
 
