@@ -5,7 +5,7 @@ castle_description_rolls = ["dungeons/d10thecastlesits", "dungeons/d12thecastlew
 prison_description_rolls = ["dungeons/d12theprisonislocated", "dungeons/d8theprisonwasbuiltby", "dungeons/d6theprisoncomplexis", "dungeons/d6theprisonissurroundedby", "dungeons/d10prisonersareheldwithin", "dungeons/d4thecellsorpitsconditionis", "dungeons/d4prisonersaretreated", "dungeons/d10theprisonisknownfor", "dungeons/d8accordingtorumorwithintheprisonswallslies", ];
 
 
-top.menu = [
+window.menu = [
 
   { "title":"All", "id":"All",
     "items":[
