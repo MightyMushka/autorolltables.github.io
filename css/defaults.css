@@ -293,3 +293,36 @@ span.subtext {
   font-style: italic;
   color: #aaa;
 }
+/* Media Query for smaller screens (Bootstrap's xs breakpoint is typically below 768px) */
+@media (max-width: 767px) {
+  #leftnav {
+    /* Optional: If #leftnav stacks too closely to #rightnav below it,
+       you can add some bottom margin. Bootstrap columns in a row usually
+       have some gutter padding, so you might not need this.
+       Uncomment if you want more space. */
+    /* margin-bottom: 20px; */
+  }
+
+  #left-display-list {
+    /* Override the fixed height for smaller screens.
+       '40vh' means 40% of the viewport's current height.
+       You can adjust this value (e.g., to '50vh' for roughly half screen,
+       or a fixed pixel value like '250px' or '300px') to what looks best.
+    */
+    height: 40vh; /* Example: 40% of viewport height */
+    /* Or, try a fixed pixel height if you prefer: */
+    /* height: 300px; */
+
+    /* IMPORTANT NOTE:
+       Your existing CSS has a rule:
+       @media screen and (-webkit-min-device-pixel-ratio:0) {
+         #left-display-list {height: 499px !important;}
+       }
+       If the '40vh' (or other value you choose) doesn't seem to apply on some
+       WebKit browsers (like older Chrome/Safari) on small screens, you might
+       need to add '!important' to this new height rule to override that one:
+       height: 40vh !important;
+       Try without '!important' first.
+    */
+  }
+}
