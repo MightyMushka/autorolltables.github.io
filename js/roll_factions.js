@@ -2,7 +2,7 @@
 //
 
 
-top.factions = [
+window.factions = [
 
 
 
