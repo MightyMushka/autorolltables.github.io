@@ -327,7 +327,7 @@ span.subtext {
        The sum of these vh units, plus your header/footer/button heights,
        will determine the overall page height.
     */
-    height: 10vh !important; /* Using !important due to existing !important rules. */
+    height: 300px !important; /* Using !important due to existing !important rules. */
 
     /* Your existing 'overflow-y: scroll;' rule for these elements
        will ensure that if content exceeds this new height,
