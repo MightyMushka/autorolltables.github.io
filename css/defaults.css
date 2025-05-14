@@ -293,3 +293,28 @@ span.subtext {
   font-style: italic;
   color: #aaa;
 }
+/* ===== Add these styles at the END of your defaults.css file ===== */
+
+/* Media Query for smaller screens (Bootstrap's xs breakpoint is typically below 768px) */
+@media (max-width: 767px) {
+
+  #leftnav {
+    /* Optional: Adds some space below the list of tables when it stacks
+       above the roll results area on small screens. Uncomment if you want more space. */
+    /* margin-bottom: 20px; */
+  }
+
+  #left-display-list {
+    /*
+      Set the height to 50% of the viewport height for "half height".
+      You can adjust '50vh' to other values like '40vh', '250px', etc.,
+      to get the visual height you prefer on small screens.
+    */
+    height: 200px !important; /* Using !important to override existing height rules,
+                                 especially the WebKit hack that also uses !important. */
+
+    /* Your existing 'overflow-y: scroll;' rule for #left-display-list
+       will ensure that if content exceeds this new 50vh height,
+       it will be scrollable within this panel. */
+  }
+}
