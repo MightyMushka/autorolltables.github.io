@@ -2,6 +2,6 @@
 //
 
 
-top.vehicles = [
+window.vehicles = [
 
 ];
