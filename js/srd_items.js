@@ -3,7 +3,7 @@
 //
 
 
-top.srd_items = [
+window.srd_items = [
 
   "Adamantine Armor": {
     "page": "dmg 150",
