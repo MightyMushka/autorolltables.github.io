@@ -1,7 +1,7 @@
 // monsters.js
 //
 
-top.monsters = [
+window.monsters = [
 
 
 
