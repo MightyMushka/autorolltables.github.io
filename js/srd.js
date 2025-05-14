@@ -29,7 +29,7 @@ function init() {
 }
 
 function loadmenu() {
-  menu = top.menu;
+  menu = window.menu;
   for(i=0;i<menu.length;i++){
     var item = menu[i].title;
     $("#menu").append("<a href='#' class='menuitem btn' id='" + item + "'>" + item + "</a>")
@@ -40,7 +40,7 @@ function loadleftdisplay(curr_table) {
   clearleft();
 
   // find the correct menu (from the selected menu item)
-  menu = top.menu;
+  menu = window.menu;
   for(i=0;i<menu.length;i++){
     if(menu[i].title==curr_table){
       current = menu[i];
@@ -216,7 +216,7 @@ function get_item(id){
 
 // return menu variable from table name
 function get_array(name, title) {
-  menu = top.menu
+  menu = window.menu
   for(i=0;i<menu.length;i++){
     if(menu[i].id==title){
       for(z=0;z<menu[i].items.length;z++){
@@ -254,31 +254,31 @@ function display_side(){
 function get_category(category_name){
   switch(category_name) {
     case "backgrounds":
-      return top.srd_backgrounds;
+      return window.srd_backgrounds;
       break;
     case "classes":
-      return top.srd_classes;
+      return window.srd_classes;
       break;
     case "feats":
-      return top.srd_feats;
+      return window.srd_feats;
       break;
     case "items":
-      return top.srd_items;
+      return window.srd_items;
       break;
     case "monsters":
-      return top.srd_monsters;
+      return window.srd_monsters;
       break;
     case "races":
-      return top.srd_races;
+      return window.srd_races;
       break;
     case "rules":
-      return top.srd_rules;
+      return window.srd_rules;
       break;
     case "spells":
-      return top.srd_spells;
+      return window.srd_spells;
       break;
     case "subrolls":
-      return top.srd_subrolls;
+      return window.srd_subrolls;
       break;
   }
 }
