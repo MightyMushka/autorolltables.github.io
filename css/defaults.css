@@ -309,7 +309,7 @@ span.subtext {
        You can adjust this value (e.g., to '50vh' for roughly half screen,
        or a fixed pixel value like '250px' or '300px') to what looks best.
     */
-    height: 40vh; /* Example: 40% of viewport height */
+    height: 20vh; /* Example: 40% of viewport height */
     /* Or, try a fixed pixel height if you prefer: */
     /* height: 300px; */
 
