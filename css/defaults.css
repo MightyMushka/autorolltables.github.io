@@ -310,7 +310,7 @@ span.subtext {
       You can adjust '50vh' to other values like '40vh', '250px', etc.,
       to get the visual height you prefer on small screens.
     */
-    height: 200px !important; /* Using !important to override existing height rules,
+    height: 250px !important; /* Using !important to override existing height rules,
                                  especially the WebKit hack that also uses !important. */
 
     /* Your existing 'overflow-y: scroll;' rule for #left-display-list
@@ -327,7 +327,7 @@ span.subtext {
        The sum of these vh units, plus your header/footer/button heights,
        will determine the overall page height.
     */
-    height: 300px !important; /* Using !important due to existing !important rules. */
+    height: 350px !important; /* Using !important due to existing !important rules. */
 
     /* Your existing 'overflow-y: scroll;' rule for these elements
        will ensure that if content exceeds this new height,
