@@ -2,7 +2,7 @@
 //
 
 
-top.plots = [
+window.plots = [
 
 
 
